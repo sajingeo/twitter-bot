@@ -19,7 +19,8 @@ t = Twitter(auth=OAuth(token, token_key, con_secret, con_secret_key))
 ## this is to search for hash tag
 time_line = t.search.tweets(q="#pycon")
 old_id = 0
-cmd_line = ['mplayer','-ao','-really-quite','-noconsolecontrols']
+cmd_line_sound = ['mplayer','-ao','-really-quite','-noconsolecontrols']
+cmd_line_motor = ['python','motor.py']
 while (True):
 	time_line = t.search.tweets(q='#pycon')
 	tweet_id = time_line['statuses'][0]['id']
@@ -35,7 +36,10 @@ while (True):
 		cmd_line.append(encoded_url)
 		#debug
 		print cmd_line
-	time.sleep(60)
-		## subprocess.Popen(cmd_line)
+		## motor = subprocess.Popen(cmd_line_motor)
+		## sound = subprocess.Popen(cmd_line)
+		## sound.wait()
+		## motor.kill()
+		time.sleep(60)
 # Search for the latest tweets about #pycon
 #t.search.tweets(q="#pycon")
